@@ -1,0 +1,212 @@
+{
+  "note": "Placeholder imagery. Replace with real Panintel project photography.",
+  "images": {
+    "fpso": {
+      "alt": "Large red cargo ship sails on the water",
+      "note": "Stands in for an FPSO hull",
+      "credit": "Adem Percem",
+      "source": "https://unsplash.com/photos/fC5l_kR_ang",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/fpso-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/fpso-800.webp"
+        }
+      ],
+      "v": "428bbff4"
+    },
+    "fso": {
+      "alt": "aerial photography of tanker ship",
+      "note": "Stands in for an FSO",
+      "credit": "Shaah Shahidh",
+      "source": "https://unsplash.com/photos/-subrrYxv8A",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/fso-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/fso-800.webp"
+        }
+      ],
+      "v": "318cb2b3"
+    },
+    "mopu": {
+      "alt": "a group of oil rigs in the ocean",
+      "note": "Stands in for a MOPU",
+      "credit": "Ben Wicks",
+      "source": "https://unsplash.com/photos/Ej2FQy1W7z4",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/mopu-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/mopu-800.webp"
+        }
+      ],
+      "v": "6ca8653d"
+    },
+    "ewt": {
+      "alt": "a black and white photo of an industrial plant",
+      "note": "Stands in for well test process train",
+      "credit": "Danny Burke",
+      "source": "https://unsplash.com/photos/_hRakdmTtF8",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/ewt-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/ewt-800.webp"
+        }
+      ],
+      "v": "45f5d6a9"
+    },
+    "barge": {
+      "alt": "crane near body of water during daytime",
+      "note": "Stands in for an inland spud barge",
+      "credit": "Nikola Johnny Mirkovic",
+      "source": "https://unsplash.com/photos/HNsytirZYQg",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/barge-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/barge-800.webp"
+        }
+      ],
+      "v": "3f41766f"
+    },
+    "hero": {
+      "alt": "the sun is setting over a city with mountains in the background",
+      "note": "Home hero",
+      "credit": "Bernd 📷 Dittrich",
+      "source": "https://unsplash.com/photos/UESVcdn7tds",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/hero-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/hero-800.webp"
+        }
+      ],
+      "v": "5feb2ee0"
+    },
+    "engineering": {
+      "alt": "brown pencil on white printing paper",
+      "note": "Engineering and design",
+      "credit": "Sven Mieke",
+      "source": "https://unsplash.com/photos/fteR0e2BzKo",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/engineering-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/engineering-800.webp"
+        }
+      ],
+      "v": "01c94d8d"
+    },
+    "safety": {
+      "alt": "red hard hat on pavement\\",
+      "note": "HSE — the helmet carries the Panintel logo, composited by scripts/brand-hardhat.mjs. The unbranded original is kept at media-src/_pristine/safety.jpg; re-run that script after any npm run media, which would otherwise restore the plain photo.",
+      "credit": "Ümit Yıldırım",
+      "source": "https://unsplash.com/photos/9OB46apMbC4",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/safety-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/safety-800.webp"
+        }
+      ],
+      "branded": true,
+      "v": "5e0a8d85"
+    },
+    "operations": {
+      "alt": "Industrial pipes and machinery in a factory",
+      "note": "Operations and maintenance",
+      "credit": "Dave Meckler",
+      "source": "https://unsplash.com/photos/xYeGSXRhV80",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/operations-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/operations-800.webp"
+        }
+      ],
+      "v": "9ab7b40a"
+    },
+    "team": {
+      "alt": "a drilling rig in the middle of a field",
+      "note": "About / who we are — a drilling rig. Replaced a cement-mixer construction shot that read as a general builder rather than an oil and gas operator.",
+      "credit": "Natalia Grela",
+      "source": "https://unsplash.com/photos/laDsdizvnIs",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/team-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/team-800.webp"
+        }
+      ],
+      "v": "c3e7e50a"
+    },
+    "offshore": {
+      "alt": "oil rig",
+      "note": "Capabilities",
+      "credit": "Zach Theo",
+      "source": "https://unsplash.com/photos/guADzpF9pDI",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "files": [
+        {
+          "w": 1600,
+          "file": "/media/offshore-1600.webp"
+        },
+        {
+          "w": 800,
+          "file": "/media/offshore-800.webp"
+        }
+      ],
+      "v": "ee9b4a38"
+    },
+    "safety-plain": {
+      "alt": "red hard hat on pavement\\",
+      "note": "HSE page banner — the UNBRANDED helmet. The banner shows the photo at 42% opacity behind the headline, where the branded version's logo ghosted through the type and read as a mistake. The branded one is used where the photo is shown in full.",
+      "credit": "Ümit Yıldırım",
+      "source": "https://unsplash.com/photos/9OB46apMbC4",
+      "license": "Unsplash License — free for commercial use, no permission needed",
+      "v": "d9d40a76"
+    }
+  }
+}

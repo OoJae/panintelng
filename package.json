@@ -1,0 +1,31 @@
+{
+  "name": "panintelng",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/make-sitemap.mjs && vite build",
+    "preview": "vite preview --port 5179",
+    "typecheck": "tsc --noEmit",
+    "brand:mark": "node scripts/make-mark.mjs",
+    "brand:logo": "python3 scripts/make_lockups.py",
+    "media": "node scripts/fetch-media.mjs",
+    "brand:fonts": "python3 scripts/subset-fonts.py",
+    "media:encode": "node scripts/encode-media.mjs",
+    "sitemap": "node scripts/make-sitemap.mjs",
+    "brand:hardhat": "node scripts/brand-hardhat.mjs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/martian-mono": "^5.3.0",
+    "@types/node": "^26.4.0",
+    "sharp": "^0.35.4",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "lenis": "^1.3.26"
+  },
+  "private": true
+}
