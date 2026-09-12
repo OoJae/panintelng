@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output — regenerate with `npm run build`
+dist/
+panintel-site.zip
+
+# Tooling scratch
+.playwright-mcp/
+.shots/
+
+# Kept local, not published
+BRAND.md
+DEPLOY.md
+
+# OS / logs
+.DS_Store
+*.log

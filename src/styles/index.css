@@ -1,0 +1,8 @@
+/* Self-hosted subsets: no runtime network beyond our own origin, and a third
+   of the bytes the full fontsource ranges cost. See scripts/subset-fonts.py. */
+@import './fonts.css';
+
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';

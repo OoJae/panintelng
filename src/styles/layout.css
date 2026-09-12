@@ -1,0 +1,244 @@
+/* ==========================================================================
+   LAYOUT — shell, navigation, sections, bands, footer
+   ========================================================================== */
+
+.wrap {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--s-section); }
+.section--tight { padding-block: calc(var(--s-section) * 0.6); }
+.section--flush-top { padding-top: 0; }
+
+/* Full-bleed statement band, the way both reference sites break their
+   light ground with a solid brand colour. */
+.band {
+  background: var(--band);
+  color: var(--on-band);
+  padding-block: var(--s-section);
+}
+.band .display { color: var(--on-band); }
+.section--alt { background: var(--shell-deep); }
+
+/* ---- Navigation -------------------------------------------------------- */
+.nav {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-h);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--d-micro) var(--ease-out), border-color var(--d-micro) var(--ease-out);
+}
+.nav__inner {
+  height: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+/* The lockup carries the full registered name, so it needs more height than
+   a bare wordmark would. */
+.nav__logo { display: flex; align-items: center; flex: none; }
+.nav__logo svg { height: 34px; width: auto; }
+@media (max-width: 700px) { .nav__logo svg { height: 28px; } }
+
+/* Over a full-bleed hero the bar is transparent and the marks go white,
+   the way both reference sites open. */
+.nav--over {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+/* A photograph can be bright anywhere, so the transparent bar carries its own
+   scrim rather than relying on the hero's gradient reaching the top. */
+.nav--over::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: calc(var(--nav-h) * 2);
+  background: linear-gradient(to bottom, rgb(11 10 9 / 0.62), rgb(11 10 9 / 0));
+  pointer-events: none;
+}
+.nav__inner { position: relative; }
+.nav--over .nav__logo { --logo-ink: var(--on-band); }
+.nav--over .nav__link { color: var(--paper); }
+.nav--over .nav__burger span { background: var(--paper); }
+
+.nav__links { display: flex; align-items: center; gap: clamp(1.1rem, 2vw, 2.25rem); }
+.nav__link {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  padding-block: 0.5rem;
+  transition: color var(--d-micro) var(--ease-out);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 2px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--d-micro) var(--ease-out);
+}
+.nav__link:hover::after, .nav__link[aria-current='page']::after { transform: scaleX(1); }
+
+.nav__cta { margin-left: var(--s-2); }
+.nav__burger { display: none; }
+
+@media (max-width: 960px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__burger {
+    display: grid;
+    /* align-content, not place-items: otherwise the rows distribute across the
+       44px hit area and the bars drift apart. */
+    align-content: center;
+    justify-items: center;
+    gap: 5px;
+    width: 44px; height: 44px;
+    margin-right: -10px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+  .nav__burger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--ink);
+    transition: transform var(--d-micro) var(--ease-toggle), opacity var(--d-micro) linear;
+  }
+  .nav__burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav__burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  .nav__burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* ---- Mobile menu panel ------------------------------------------------- */
+.menu {
+  position: fixed;
+  inset: var(--nav-h) 0 0 0;
+  z-index: var(--z-menu);
+  background: var(--paper);
+  padding: var(--s-4) var(--gutter) var(--s-6);
+  overflow-y: auto;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform 0.45s var(--ease-out), visibility 0.45s;
+}
+.menu[data-open='true'] { transform: translateY(0); visibility: visible; }
+.menu__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.45rem;
+  letter-spacing: -0.015em;
+}
+.menu__link span { color: var(--amber-deep); }
+.menu__foot { margin-top: var(--s-4); display: grid; gap: 0.4rem; color: var(--ink-soft); font-size: 0.95rem; }
+.menu__foot a:hover { color: var(--amber-deep); }
+@media (min-width: 961px) { .menu { display: none; } }
+
+/* ---- Buttons ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0.95rem 1.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--d-micro) var(--ease-out), color var(--d-micro) var(--ease-out),
+              border-color var(--d-micro) var(--ease-out);
+}
+.btn__arrow { transition: transform var(--d-micro) var(--ease-out); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+.btn--primary { background: var(--amber); color: var(--ink); border-color: var(--amber); }
+.btn--primary:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.btn--dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn--dark:hover { background: var(--amber); color: var(--ink); border-color: var(--amber); }
+
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+
+.btn--on-band { background: transparent; color: var(--on-band); border-color: var(--line-band); }
+.btn--on-band:hover { background: var(--amber); color: var(--ink); border-color: var(--amber); }
+
+/* Underlined text link with an arrow — the reference sites' quiet CTA. */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--amber);
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color var(--d-micro) var(--ease-out), color var(--d-micro) var(--ease-out);
+}
+.arrow-link span { transition: transform var(--d-micro) var(--ease-out); }
+.arrow-link:hover { color: var(--amber-deep); border-color: var(--ink); }
+.arrow-link:hover span { transform: translateX(4px); }
+.on-band .arrow-link:hover { color: var(--amber); border-color: var(--on-band); }
+
+/* ---- Footer ------------------------------------------------------------ */
+.footer { background: var(--band); color: var(--on-band); padding-block: var(--s-6) var(--s-4); }
+.footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--s-4); }
+.footer__brand { --logo-ink: var(--on-band); }
+.footer__brand svg { height: 46px; width: auto; }
+.footer__tag { margin-top: var(--s-3); color: var(--on-band-dim); max-width: 30ch; }
+.footer__col h2 { font-family: var(--font-mono); font-size: var(--t-label); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: var(--s-2); }
+.footer__col li + li { margin-top: 0.55rem; }
+.footer__col a, .footer__col p { color: var(--on-band-dim); font-size: 0.95rem; }
+.footer__col a { transition: color var(--d-micro) var(--ease-out); }
+.footer__col a:hover { color: var(--on-band); }
+.footer__bar {
+  margin-top: var(--s-6);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line-band);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--on-band-dim);
+}
+@media (max-width: 900px) {
+  .footer__top { grid-template-columns: 1fr 1fr; gap: var(--s-4) var(--s-3); }
+  .footer__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .footer__top { grid-template-columns: 1fr; }
+}
+
+/* ---- Below-fold rendering ---------------------------------------------- */
+/* content-visibility was tried here and removed. On sections that paint their
+   own background (the black bands and the footer) it made the background
+   invisible to contrast tooling — axe measured the footer's pale-grey text
+   against the page's light ground instead of its own black, reporting a real
+   2.25:1 failure. Performance is already 100 on mobile without it, so the
+   accessibility risk buys nothing. */

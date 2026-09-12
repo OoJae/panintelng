@@ -1,0 +1,80 @@
+/* ==========================================================================
+   PANINTEL — DESIGN TOKENS
+   Values marked (PDF) are lifted verbatim from the content streams of
+   "1.0 Panintel Projects Company Profile.pdf". They are not approximations.
+
+   The site reads light, the way a corporate energy site does: white and warm
+   off-white grounds, full-bleed photography, and full-width black bands for
+   statements — which is also how the company profile is set.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour ---------------------------------------------------------- */
+  --paper:      #FFFFFF;  /* cards, panels */
+  --shell:      #F6F4F0;  /* page ground — warm off-white, not blue-grey */
+  --shell-deep: #EBE7E0;  /* alternating band on light */
+
+  --ink:        #14120F;  /* body and headings on light. 16.9:1 on --paper */
+  --ink-soft:   #57524B;  /* secondary copy. 7.2:1 on --paper */
+  --ink-faint:  #66615A;  /* meta, captions, spec keys. 6.1:1 on --paper, 5.0:1 on --shell-deep */
+
+  --band:       #0B0A09;  /* full-bleed statement bands. Their profile's black */
+  --band-soft:  #1C1915;  /* raised surfaces inside a band */
+  --on-band:    #F4F2EE;  /* text on a band. 17.4:1 */
+  --on-band-dim:#A9A49B;  /* secondary text on a band. 7.0:1 */
+
+  --amber:      #FFC000;  /* (PDF) the accent — wordmark + Core Values box */
+  --amber-deep: #845A00;  /* (PDF-derived) the amber darkened until small text clears 4.5:1
+                             on EVERY light ground — 6.1:1 on --paper, 5.6:1 on --shell,
+                             5.0:1 on --shell-deep. Bright --amber is only ever used on a
+                             dark band, where it is 12:1. */
+  --amber-wash: #FFF6DC;  /* tint for quiet highlight panels */
+
+  --flare:      #C00000;  /* (PDF) mission red. ONE use: the safety rule */
+
+  /* Logo lockup. Supplied artwork sets the wordmark in grey with a bright
+     amber descriptor; on a dark band the wordmark goes near-white. Both are
+     logotype, which WCAG 1.4.3 exempts from text-contrast minimums. */
+  --logo-ink:    #A6A6A6;
+  --logo-accent: var(--amber);
+
+  --line:       #DDD8D0;  /* hairlines on light */
+  --line-band:  rgb(244 242 238 / 0.16);
+
+  /* ---- Type ------------------------------------------------------------ */
+  --font-display: 'Archivo Subset', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    'Instrument Sans Subset', 'Instrument Sans', system-ui, sans-serif;
+  --font-mono:    'Martian Mono Subset', 'Martian Mono', ui-monospace, 'SF Mono', monospace;
+
+  --t-hero:    clamp(2.35rem, 5.2vw, 5.25rem);
+  --t-section: clamp(1.9rem, 3.4vw, 3.25rem);
+  --t-sub:     clamp(1.25rem, 1.9vw, 1.75rem);
+  --t-card:    clamp(1.05rem, 1.3vw, 1.3rem);
+  --t-body:    clamp(1rem, 1.02vw, 1.1rem);
+  --t-small:   0.9rem;
+  --t-label:   0.7rem;
+
+  --wdth-display: 108;
+
+  /* ---- Space & grid ---------------------------------------------------- */
+  --gutter:  clamp(1.25rem, 5vw, 5.5rem);
+  --col-gap: clamp(1rem, 1.8vw, 2rem);
+  --maxw:    1600px;
+  --nav-h:   76px;
+
+  --s-1: 0.5rem;  --s-2: 1rem;   --s-3: 1.5rem;  --s-4: 2.5rem;
+  --s-5: 3.5rem;  --s-6: 5rem;
+  --s-section: clamp(3.5rem, 7vw, 7rem);
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-toggle: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-micro:  0.28s;
+  --d-reveal: 0.8s;
+
+  --z-content: 2; --z-nav: 40; --z-menu: 50;
+}
+
+@media (max-width: 700px) {
+  :root { --nav-h: 62px; }
+}

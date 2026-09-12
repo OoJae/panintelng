@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--@include head-->
+  <title>Contact — Panintel Projects Nigeria Limited</title>
+  <meta name="description" content="Our Lagos, Nigeria office. Telephone, email and project enquiries." />
+  <meta property="og:title" content="Contact — Panintel Projects Nigeria Limited" />
+  <meta property="og:description" content="Our Lagos, Nigeria office. Telephone, email and project enquiries." />
+  <link rel="canonical" href="https://www.panintelng.com/contact" />
+  <meta property="og:url" content="https://www.panintelng.com/contact" />
+  <link rel="stylesheet" href="/src/styles/index.css" />
+  <script type="module" src="/src/pages/site.ts"></script>
+</head>
+<body data-hero>
+  <!--@include nav-->
+  <main id="main">
+    <section class="pagehero">
+      <div class="pagehero__media"><!--@data img-operations--></div>
+      <div class="pagehero__body">
+        <p class="eyebrow eyebrow--on-band">Contact</p>
+        <h1 class="display display--hero pagehero__title">Tell us what you are building</h1>
+        <p class="lede pagehero__lede">The earlier we see a concept, the more we can do about its economics. Send us the scope you have, however rough.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="sechead"><div><p class="eyebrow">Office</p><h2 class="display display--section sechead__title">Where to find us</h2></div></div>
+        <!--@data contact-->
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="wrap">
+        <div class="sechead"><div><p class="eyebrow">Enquiry</p><h2 class="display display--section sechead__title">Start a project</h2></div></div>
+        <form class="form" action="/api/enquiry.php" method="post" data-enquiry data-reveal novalidate>
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" name="t" value="0" data-started />
+
+          <div class="form__row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="stage">Stage</label>
+              <select id="stage" name="stage">
+                <option>Concept screening</option>
+                <option>Front-end engineering design</option>
+                <option>Detailed engineering design</option>
+                <option>Procurement</option>
+                <option>Construction &amp; installation</option>
+                <option>Operations &amp; maintenance</option>
+                <option>Integrity &amp; inspection</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="scope">Scope</label>
+            <textarea id="scope" name="scope" required></textarea>
+          </div>
+          <div class="form__submit">
+            <button class="btn btn--primary" type="submit" data-submit>
+              Send enquiry <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <p class="form__status" role="status" aria-live="polite" data-status></p>
+          </div>
+          <p class="form__note">
+            We reply to every enquiry. You can also write to
+            <a href="mailto:technical@panintelng.com">technical@panintelng.com</a> directly.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!--@include footer-->
+</body>
+</html>

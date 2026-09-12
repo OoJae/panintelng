@@ -1,0 +1,89 @@
+# ==========================================================================
+# Panintel Projects Nigeria Limited — Apache configuration for cPanel
+# Upload alongside index.html in public_html/
+# ==========================================================================
+
+# --- Canonical host + HTTPS -----------------------------------------------
+# Force https and the www host, in a single redirect rather than two hops.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.panintelng.com%{REQUEST_URI} [L,R=301]
+
+  # --- Clean URLs -------------------------------------------------------
+  # /contact.html was the live URL before this change, so send it on
+  # permanently rather than leaving two addresses for one page.
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]*?)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L,NE]
+
+  # Serve /contact from contact.html. The form handler and real files and
+  # directories are left alone.
+  RewriteCond %{REQUEST_URI} !^/api/
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ /$1.html [L]
+</IfModule>
+
+# --- Error pages ----------------------------------------------------------
+ErrorDocument 404 /404.html
+
+# --- Compression ----------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# --- Caching --------------------------------------------------------------
+# Build assets carry a content hash in the filename, so they can be cached
+# forever. HTML must not be, or a redeploy will not reach returning visitors.
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  ExpiresByType text/html                     "access plus 0 seconds"
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresByType image/webp                    "access plus 6 months"
+  ExpiresByType image/svg+xml                 "access plus 6 months"
+  ExpiresByType image/png                     "access plus 6 months"
+  ExpiresByType application/xml               "access plus 1 day"
+  ExpiresByType text/plain                    "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # --- Security headers ---------------------------------------------------
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --- Correct MIME types ---------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp                 .webp
+  AddType font/woff2                 .woff2
+  AddType image/svg+xml              .svg
+  AddType application/xml            .xml
+</IfModule>
+
+# --- Don't serve source maps or dotfiles ----------------------------------
+<FilesMatch "\.(map)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+<Files ".htaccess">
+  Require all denied
+</Files>

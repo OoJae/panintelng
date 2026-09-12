@@ -1,0 +1,16 @@
+{
+  "_comment": "PSNR (dB) each image achieves in the build currently deployed, measured against media-src/<key>.jpg. The encoder must meet or beat these, so a smaller file can never mean a softer picture than what is already live.",
+  "targets": {
+    "fpso": 37.9,
+    "fso": 34.3,
+    "mopu": 38.3,
+    "ewt": 40.5,
+    "barge": 40.6,
+    "hero": 37.1,
+    "engineering": 42.0,
+    "safety": 40.0,
+    "operations": 38.3,
+    "team": 37.3,
+    "offshore": 37.6
+  }
+}
