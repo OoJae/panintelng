@@ -129,7 +129,6 @@ export const BLOCKS: Record<string, () => string> = {
       <div class="contact-card">
         <h3>Email</h3>
         <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>
-        <a href="mailto:${CONTACT.emailAlt}">${CONTACT.emailAlt}</a>
       </div>
     </div>`
   },

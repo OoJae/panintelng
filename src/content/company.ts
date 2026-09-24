@@ -29,7 +29,6 @@ export const CONTACT = {
   // info@panintelng.com is advertised in the company profile PDF but has no
   // mailbox on the server, so the site shows addresses that actually receive.
   email: 'technical@panintelng.com',
-  emailAlt: 'panintelprojects@gmail.com',
 } as const
 
 /** slide 1 — the profile's opening statement, verbatim */
