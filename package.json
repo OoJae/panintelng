@@ -12,7 +12,9 @@
     "brand:fonts": "python3 scripts/subset-fonts.py",
     "media:encode": "node scripts/encode-media.mjs",
     "sitemap": "node scripts/make-sitemap.mjs",
-    "brand:hardhat": "node scripts/brand-hardhat.mjs"
+    "brand:hardhat": "node scripts/brand-hardhat.mjs",
+    "brand:email": "node scripts/make-email-logo.mjs",
+    "brand:signatures": "node --experimental-strip-types scripts/make-signatures.mjs"
   },
   "type": "module",
   "devDependencies": {
