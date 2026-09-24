@@ -46,8 +46,9 @@ curves. Every rule elsewhere draws from them.
 
 **Content lives in one place.** `src/content/company.ts` holds every word, figure
 and specification on the site, each annotated with the slide of
-`1.0 Panintel Projects Company Profile.pdf` it came from. Nothing is invented —
-no project counts, no client logos, no metrics the profile does not state.
+`1.0 Panintel Projects Company Profile.pdf` it came from (the client's document,
+kept out of the repository). Nothing is invented — no project counts, no client
+logos, no metrics the profile does not state.
 
 **Pages are rendered at build time.** `src/content/render.ts` turns that content
 into markup, injected by a plugin in `vite.config.ts` via `<!--@data name-->`
